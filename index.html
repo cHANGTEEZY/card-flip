@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      :root {
+        --shadow-color: rgb(65, 60, 60);
+        --bg-color: rgb(93, 94, 90);
+        --front-color: rgb(134, 53, 53);
+        --back-color: rgb(126, 92, 92);
+      }
+      body {
+        height: 100vh;
+        /* background: linear-gradient(-45deg, #2335bb, #0e020c); */
+        background-color: var(--bg-color);
+        font-family: JetBrains Mono, sans-serif;
+        color: rgb(204, 146, 146);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-shadow: 6px 6px 6px rgb(30, 31, 29);
+      }
+      .container {
+        width: 18rem;
+        height: 30rem;
+        perspective: 40rem;
+        cursor: pointer;
+      }
+      .card {
+        height: 100%;
+        width: 100%;
+        position: relative;
+        /* transition: transform 2000ms; */
+        transform-style: preserve-3d;
+        animation: hoverAnimation 8s infinite alternate;
+      }
+      @keyframes hoverAnimation {
+        from {
+          transform: rotateY(0deg) /* rotateZ(80deg) */;
+        }
+        to {
+          transform: rotateY(360deg) /*rotateZ(80deg)*/;
+        }
+      }
+      /* .container:hover > .card {
+        cursor: pointer;
+        transform: rotateZ(20deg) rotateY(180deg);
+      } */
+      .front,
+      .back {
+        height: 100%;
+        width: 100%;
+        border-radius: 2rem;
+        position: absolute;
+        backface-visibility: hidden;
+      }
+      .front {
+        background-color: var(--front-color);
+        box-shadow: 20px 8px 6px 6px var(--shadow-color);
+        color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 900;
+        background-image: url(/assets/retard.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      .back {
+        transform: rotateY(180deg);
+        background-color: var(--back-color);
+        box-shadow: 20px 8px 6px 6px var(--shadow-color);
+        color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 900;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="front"></div>
+        <div class="back">
+          <h1>One massive Retard</h1>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
